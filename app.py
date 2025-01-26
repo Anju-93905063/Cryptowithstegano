@@ -75,6 +75,7 @@ def key_generation():
     minimum = 9999999999
     key = []
     f=0
+
     for i in range(128):
         temp = random.randint(0,1)
         key.append(temp^x^y^day^month^year)

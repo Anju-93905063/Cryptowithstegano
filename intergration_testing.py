@@ -10,7 +10,6 @@ from Preprocessing import Preprocessing
 
 
 def main():
-	# For the integration testing I will take plain txt from usr converting into binary string giving it to Encryption block to 
 	# encrypt it so that it gives out cypher text. which is tored in image 
 	# after extraaction of cypher txt from stegeo img it will be given to the decryption module 
 	# Decryptor decrypt it to yield plain txt.

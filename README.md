@@ -1,7 +1,6 @@
 
 # Cryptowithstegano
 
-**Author**: G. Himanjali
 
 ## Overview
 This project integrates **cryptography** and **steganography** to provide a secure way of hiding and encrypting messages. By combining both techniques, the system ensures that the hidden message is not only unreadable but also invisible to prying eyes. This project aims to demonstrate how these two methods work together to enhance digital security.

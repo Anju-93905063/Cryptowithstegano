@@ -4,7 +4,6 @@ class Preprocessing:
 
 
 	# 
-	#Convert 128 bits of data that is 128 bit binary string into 32 bits 
 	#This function return tuple of 4 binary string of 32 bits each
 	def Convert128_to_32bits(self,temp):
 		E_I = []

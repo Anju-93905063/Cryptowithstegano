@@ -1,119 +1,125 @@
 {% extends "main.html" %}
 
-
-
 {% block content %}
+<head>
+  <style>
+    /* Custom Colors and Styling */
+.bg-primary {
+  background-color: #007bff !important; /* Blue background for header */
+}
+body{
+  background-color: antiquewhite;
+}
+
+.jumbotron {
+  background-color:bisque/* Light background for content section */
+  border-radius: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-outline-warning {
+  border-color: #ffc107 !important; /* Yellow border color */
+  color: #ffc107 !important; /* Yellow text color */
+  font-weight: bold;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107 !important; /* Yellow background on hover */
+  color: white !important; /* White text on hover */
+}
+
+/* Custom Form Input Styles */
+.form-control {
+  border-radius: 12px !important; /* Rounded input fields */
+  border: 1px solid #cccccc !important; /* Soft border color */
+}
+
+.form-control:focus {
+  border-color: #007bff !important; /* Focus color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+}
+
+.jumbotron .container {
+  max-width: 900px; /* Max width for content */
+  margin: auto;
+}
+
+.text-white {
+  color: #ffffff !important; /* White text color */
+}
+
+.custom-jumbotron {
+  background-color: #ffffff !important; /* White background for main jumbotron */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+}
+
+label {
+  color: black;  /* Dark text color for labels */
+}
+
+textarea {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input[type="file"] {
+  background-color: #e9ecef !important; /* File input background color */
+  border: 1px solid #007bff !important; /* Blue border for file input */
+  border-radius: 10px;
+}
+
+/* Buttons & Links */
+button {
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
+  </style>
+</head>
 <br><br>
-<div class="jumbotron jumbotron-fluid bg-dark text-white">
+<div class="jumbotron jumbotron-fluid bg-primary text-white">
   <div class="container">
-    <h1 class="display-4"><center>Welcome To the Encrypter <i class="fas fa-home"></i>  !!!</center></h1>
-    <p class="lead">
-    	<center>
-    		<i class="fas fa-eye-slash"></i>  Feel free to encrypt any text you like trust us It will be confidential.
-    	</center>
-	</p>
+    <h1 class="display-4 text-center">Welcome To the Encrypter <i class="fas fa-home"></i>  !!!</h1>
+    <p class="lead text-center">
+    	<i class="fas fa-eye-slash"></i> Feel free to encrypt any text you like, trust us, it will be confidential.
+    </p>
   </div>
 </div>
 
 <br><br><br><br>
 
-
-
-<div class="jumbotron jumbotron-fluid " style="width:800px ;margin:auto;">
+<div class="jumbotron jumbotron-fluid custom-jumbotron">
   <div class="container">
-    <h1 class="display-4"><center><b>ENCRYPTION</b></center></h1>
-    <p class="lead">
-    	<center>
-    			<!-- <form action="{{url_for('decrypt')}}" method="POST">
-					<label for="PLAIN_TEXT">Enter You Text</label>
-					<input type="text" name="PLAIN_TEXT" placeholder="Please Type Something..." ><br>
+    <h1 class="display-4 text-center"><b>ENCRYPTION</b></h1>
+    <p class="lead text-center">
+      <form class="was-validated" action="{{url_for('decrypt')}}" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label">Enter Your Text</label>
+          <textarea name="PLAIN_TEXT" class="form-control is-invalid" id="validationTextarea" placeholder="Please Type Something..." required autofocus></textarea>
+        </div>
 
+        <br><br>
 
-	 				#Upload Image herre upload Button ..  do it later No worry 
+        <label for="image" class="form-label text-center">Upload Cover Image</label>
+        <div class="mb-3">
+          <input name="file" type="file" autocomplete="off" class="form-control" required>
+        </div>
 
-					<input type="submit" value="ENCRYPT">
-				</form>
- -->
-
-
-
-
-
-
-<form class="was-validated" action="{{url_for('decrypt')}}" method="POST" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label for="validationTextarea" class="form-label">Enter Your Text</label>
-    <textarea name="PLAIN_TEXT" class="form-control is-invalid" id="validationTextarea" placeholder="Please Type Something..." required autofocus></textarea>
-    <!-- <div class="invalid-feedback">
-      Please enter anything in textarea.
-    </div> -->
-  </div>
-<!-- 
-  <div class="form-check mb-3">
-    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
-    <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
-    <div class="invalid-feedback">Example invalid feedback text</div>
-  </div> -->
-
-  <!-- <div class="form-check">
-    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
-    <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
-  </div>
-  <div class="form-check mb-3">
-    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
-    <label class="form-check-label" for="validationFormCheck3">Or toggle this other radio</label>
-    <div class="invalid-feedback">More example invalid feedback text</div>
-  </div> -->
-
-
-
-
-<!-- 
-  <div class="mb-3">
-    <select class="form-select" required aria-label="select example">
-      <option value="">Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-    <div class="invalid-feedback">Example invalid select feedback</div>
-  </div> -->
-
-<br><br>
-
-  <label for="image" class="form-label"><center>Upload Cover Image</center></label>
-  <div class="mb-3">
-    <input name="file" type="file"  autocomplete="off" class="form-control" required>
-<!--     <div class="invalid-feedback">Error File not uploaded</div> -->
-  </div>
-
-
-  <div class="mb-3">
-    <!-- <button class="btn btn-primary" type="submit" >Encrypt</button> -->
-    <button type="submit" class="btn btn-outline-success">Encrypt</button>
-  </div>
-</form>
-
-
-
-
-
-     	</center>
+        <div class="mb-3 text-center">
+          <button type="submit" class="btn btn-outline-warning">Encrypt</button>
+        </div>
+      </form>
     </p>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
 {% endblock %}
-

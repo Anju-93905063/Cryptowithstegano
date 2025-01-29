@@ -1,46 +1,4 @@
 
-'''
-
-
-Author : 
-Awanit Ranjan (@Uncertainity512)
-'''
-
-
-#To run type -->
-
-# export FLASK_APP=ex1.py    
-#export FLASK_ENV= development
-#flask run        #it run the server dont go for production by --host=0.0.0.0	
-
-
-
-#or type
-
-#python3.7 filename.py 
-# ex pyhton3.7 app.py 
-#if you have used app.run() in main function 
-
-
-
-
-#If flask app on running throws an error sating ERROR 98 Address in use then we have to kill that process
-
-#For that type 
-
-#  ps -fA | grep python
-
-#Here it will list all the application using python choose the obne having flask at its extension and note its PID say 243698
-
-#Then to kill it type this --->
-
-#kill -9 243698
-
-
-#Ho gya error fix enjoy!!!!!!!!!!!!!!>.................. 
-################################################################################################################################################
-
-
 
 from Decryption import Decryption
 from Encryption import Encryption
@@ -75,7 +33,6 @@ def key_generation():
     minimum = 9999999999
     key = []
     f=0
-
     for i in range(128):
         temp = random.randint(0,1)
         key.append(temp^x^y^day^month^year)
@@ -107,14 +64,41 @@ def key_generation():
 
 
 app = Flask(__name__)
-app.secret_key =  "secret key"
+app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = "static/uploads/"
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-
 def allowed_file(filename):
-	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+import os
+from werkzeug.utils import secure_filename
+
+# Ensure the upload folder exists
+upload_folder = 'static/uploads'
+if not os.path.exists(upload_folder):
+    os.makedirs(upload_folder)
+
+# Flask config
+app.config['UPLOAD_FOLDER'] = upload_folder
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    file = request.files['file']
+    
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        # Save the file to the uploads folder
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        
+        try:
+            file.save(filepath)
+            print(f"File uploaded: {filename}")
+            return 'File uploaded successfully'
+        except Exception as e:
+            print(f"Error saving file: {e}")
+            return 'Error uploading file'
+    return 'Invalid file'
 
 
 

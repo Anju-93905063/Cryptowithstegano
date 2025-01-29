@@ -24,8 +24,8 @@ This project integrates **cryptography** and **steganography** to provide a secu
    git clone https://github.com/Anju-93905063/Cryptowithstegano.git
 
 
-<img width="468" alt="1 pic" src="https://github.com/user-attachments/assets/b3a562c5-9ca0-4c4a-8f76-3cd800a0d117" />
 
+![Screenshot 2025-01-29 190043](https://github.com/user-attachments/assets/be5c6731-f00c-439c-ac11-7f0874619c87)
 
 
 

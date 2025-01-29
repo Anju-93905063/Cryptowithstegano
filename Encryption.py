@@ -40,7 +40,7 @@ class Encryption(Preprocessing):
 
 def main():
     EI_S = ('E1', 'E2', 'E3', 'E4')  # Example values, replace with actual
-    KEYS = ('K1', 'K2', 'K3', 'K4')  # Example keys, replace with actual
+    KEYS = ('K1', 'K2', 'K3', 'K4')  # 
     encryption = Encryption()
     cipher_text = encryption.Encrypt(EI_S, KEYS)
     print("Encrypted:", cipher_text)

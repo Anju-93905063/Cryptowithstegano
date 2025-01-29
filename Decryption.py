@@ -10,7 +10,6 @@ class Decryption(Preprocessing):
 
 
 	def Decrypt(self,C_Is,KEYS):
-		#FIRST HALF  #tuples of Key and C_Is cypher text each of 32 bits are passed
 		CI1 ,CI2, CI3, CI4 = C_Is
 		K1,K2,K3,K4 = KEYS
 
